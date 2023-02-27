@@ -1,6 +1,6 @@
 # Macbook bootstrap
 
-My customised version if `dnicolson` provisioning scripts.
+My customised version of `dnicolson` provisioning scripts.
 
 ## Usage
 
