@@ -1,5 +1,13 @@
-# Macbook setup
+# Macbook bootstrap
+
+My customised version if `dnicolson` provisioning scripts.
+
+## Usage
+
+```sh
+./setup
+```
 
 ## Credits
 
- - https://github.com/dnicolson/Mac-Provisioning
+ - [Dave Nicolson](https://github.com/dnicolson/Mac-Provisioning)
