@@ -5,7 +5,7 @@ My customised version of `dnicolson` provisioning scripts.
 ## Usage
 
 ```sh
-./setup
+./setup.sh
 ```
 
 ## Credits
