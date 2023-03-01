@@ -86,6 +86,7 @@ dockutil --no-restart --add "/Applications/1Password.app"
 dockutil --no-restart --add "/Applications/Spotify.app"
 dockutil --no-restart --add "/Applications/Signal.app"
 dockutil --no-restart --add "/Applications/DevUtils.app"
+dockutil --no-restart --add "/Applications/Obsidian.app"
 
 killall Dock
 
