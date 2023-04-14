@@ -44,22 +44,36 @@ source $OPT_PATH/asdf/libexec/asdf.sh
 
 # Install Python
 asdf plugin-add python
-PYTHON3_VERSION=`asdf list-all python | grep -v [a-z] | grep '^3' | tail -1`
+PYTHON3_VERSION=$(asdf list-all python | grep -v '[a-z]' | grep '^3' | tail -1)
 asdf install python $PYTHON3_VERSION
 asdf global python $PYTHON3_VERSION
 
 # Install Poetry
 asdf plugin-add poetry
-POETRY_VERSION=`asdf list-all poetry | tail -1`
+POETRY_VERSION=$(asdf list-all poetry | tail -1)
 asdf install poetry $POETRY_VERSION
 
 # Install Kubectl
 asdf plugin-add kubectl
-KUBECTL_VERSION=`asdf list-all kubectl | tail -1`
+KUBECTL_VERSION=$(asdf list-all kubectl | tail -1)
 asdf install kubectl $KUBECTL_VERSION
+
+# Install Terraform
+asdf plugin-add terraform
+TERRAFORM_VERSION=$(asdf list-all terraform | grep -v '[a-z]' | tail -1)
+asdf install terraform $TERRAFORM_VERSION
+
+# Install Rust
+asdf plugin-add rust
+RUST_VERSION=$(asdf list-all rust | grep -v '[a-z]' | tail -1)
+asdf install rust $RUST_VERSION
 
 # Install packages
 pip install pylint
+
+# Rust
+sudo mkdir /opt/cargo && sudo chown jacek:admin /opt/cargo
+RUSTFLAGS="-C link-arg=/opt/homebrew/opt/libyaml/lib/libyaml.a" cargo install pyoxidizer --root /opt/cargo/ --force
 
 # zsh shell
 chsh -s $(which zsh)
@@ -109,12 +123,16 @@ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
 
 # Starting CopyClip
-open -a "CopyClip""
+open -a "CopyClip"
 read -p "ℹ️  Start CopyCut on startup and press any key..."
 
-# Startin CleanShot
+# Starting CleanShot
 open -a "CleanShot X"
 read -p "ℹ️  Activate CleanShot and press any key..."
+
+# Starting Docker
+open -a "Docker"
+read -p "ℹ️  Configure and log in to Docker and press any key..."
 
 echo -e "\033[1mFinal Steps\033[0m"
 
