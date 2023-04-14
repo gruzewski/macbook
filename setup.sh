@@ -69,7 +69,7 @@ RUST_VERSION=$(asdf list-all rust | grep -v '[a-z]' | tail -1)
 asdf install rust $RUST_VERSION
 
 # Install packages
-pip install pylint
+pip3 install pylint
 
 # Rust
 sudo mkdir /opt/cargo && sudo chown jacek:admin /opt/cargo
